@@ -1,1 +1,8 @@
-<p>missionfilter works!</p>
+<label for="year">Search missions by year (between {{minYear}} and {{maxYear}})</label>
+<div>
+    <input [(ngModel)]="launchYear" (input)="onFilterChange()" min="{{minYear}}" max="{{maxYear}}" type="number"
+           id="year" placeholder="4 digits" class="float-start col-xs-2 form-control form-control-sm mt-2 me-2">
+    <a href="" class="btn btn-danger btn-sm mb-4 mt-2">Reset Filter</a>
+</div>
+
+<app-missionlist [launchYear]="launchYear"></app-missionlist>
