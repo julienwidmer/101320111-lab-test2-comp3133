@@ -57,6 +57,9 @@ export class MissionlistComponent {
     // Set selected mission to pass to missiondetails
     this.selectedMission = mission;
     // Display Modal view which has missiondetails as body
-    this.detailViewServiceModal.open(modal, { centered: true });
+    this.detailViewServiceModal.open(modal, {
+      centered: true,
+      scrollable: true
+    });
   }
 }

@@ -1,1 +1,47 @@
-<p>{{ selectedMission.mission_name }}</p>
+<div class="text-center">
+  <img src="{{ selectedMission.links.mission_patch_small ?? 'https://placehold.co/120x120' }}" alt="Mission patch of {{selectedMission.mission_name}}">
+</div>
+<p class="my-3"><span class="fw-bold">Mission Name:</span> {{ selectedMission.mission_name }}</p>
+
+<h4 class="h6 fw-bold mb-0-1">Rocket Info</h4>
+<p class="mb-0"><span class="fw-semibold">Name:</span> {{ selectedMission.rocket.rocket_name }}</p>
+<p class="mb-2"><span class="fw-semibold">Type:</span> {{ selectedMission.rocket.rocket_type }}</p>
+
+<h4 class="h6 fw-bold mt-3 mb-1">Launch Info</h4>
+<p class="mb-1"><span class="fw-semibold">Year:</span> {{ selectedMission.launch_year }}</p>
+<p class="mb-2"><span class="fw-semibold">Site:</span> {{ selectedMission.launch_site.site_name_long }}</p>
+<p *ngIf="selectedMission.launch_success" class="fw-semibold text-success mt-3">
+  Launched successfully!
+</p>
+<p *ngIf="!selectedMission.launch_success" class="fw-semibold text-danger mt-3">
+  Launched failed. ({{selectedMission.launch_failure_details.reason ?? "unknown"}})
+</p>
+
+<h4 class="h6 fw-bold mb-0-1">Links</h4>
+<a href="{{selectedMission.links.wikipedia}}" target="_blank" class="btn btn-sm btn-outline-secondary me-1">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-wikipedia" viewBox="0 0 16 16">
+    <path d="M8.835 3.003c.828-.006 2.688 0 2.688 0l.033.03v.288c0 .08-.045.12-.133.12-.433.02-.522.063-.68.29-.087.126-.258.393-.435.694l-1.52 2.843-.043.089 1.858 3.801.113.031 2.926-6.946c.102-.28.086-.478-.044-.595-.132-.114-.224-.18-.563-.195l-.275-.014a.161.161 0 0 1-.096-.035.1.1 0 0 1-.046-.084v-.289l.042-.03h3.306l.034.03v.29c0 .078-.045.117-.133.117-.433.02-.754.113-.962.281a1.64 1.64 0 0 0-.488.704s-2.691 6.16-3.612 8.208c-.353.672-.7.61-1.004-.019A224.05 224.05 0 0 1 8.044 8.81c-.623 1.285-1.475 3.026-1.898 3.81-.411.715-.75.622-1.02.019-.45-1.065-1.131-2.519-1.817-3.982-.735-1.569-1.475-3.149-1.943-4.272-.167-.4-.293-.657-.412-.759-.12-.1-.368-.16-.746-.18C.069 3.429 0 3.395 0 3.341v-.303l.034-.03c.615-.003 3.594 0 3.594 0l.034.03v.288c0 .08-.05.118-.15.118l-.375.016c-.322.013-.483.11-.483.288 0 .083.034.217.109.4.72 1.753 3.207 6.998 3.207 6.998l.091.023 1.603-3.197-.32-.71L6.24 5.095s-.213-.433-.286-.577l-.098-.196c-.387-.77-.411-.82-.865-.88-.137-.017-.208-.035-.208-.102v-.304l.041-.03h2.853l.075.024v.303c0 .069-.05.104-.15.104l-.206.03c-.523.04-.438.254-.09.946l1.057 2.163 1.17-2.332c.195-.427.155-.534.074-.633-.046-.055-.202-.144-.54-.158l-.133-.015a.159.159 0 0 1-.096-.034.099.099 0 0 1-.045-.085v-.288l.041-.03Z"/>
+  </svg>
+</a>
+<a href="{{selectedMission.links.video_link}}" target="_blank" class="btn btn-sm btn-outline-danger me-1">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+  </svg>
+</a>
+<a href="{{selectedMission.links.article_link}}" target="_blank" class="btn btn-sm btn-outline-primary">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+    <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+    <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+  </svg>
+</a>
+
+<div *ngIf="selectedMission.links.flickr_images.length >= 1">
+  <h4 class="h6 fw-bold mb-0-1 mt-3">Images</h4>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let image of selectedMission.links.flickr_images" class="pb-1 pe-1">
+      <a href="{{image}}" target="_blank">
+        <img [src]="image" alt="Flickr image of {{selectedMission.mission_name}}" class="thumbnail border border-light rounded">
+      </a>
+    </div>
+  </div>
+</div>
