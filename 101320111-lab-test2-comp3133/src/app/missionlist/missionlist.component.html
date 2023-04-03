@@ -1,4 +1,10 @@
+<div *ngIf="validSearchFilter">
+  <p class="alert alert-warning">Enter a valid number between 2006 and 2023.</p>
+</div>
 <h2 class="mb-3">{{title}}</h2>
+<div *ngIf="missions.length == 0">
+  <p class="alert alert-info">There are no missions to display.</p>
+</div>
 <ul class="list-group pb-4">
   <li *ngFor="let mission of missions" class="list-group-item d-md-flex align-items-md-center text-center text-md-start p-3">
     <img src="{{ mission.links.mission_patch_small ?? 'https://placehold.co/120x120' }}" alt="Mission patch of {{mission.mission_name}}" class="me-md-4 mb-3 mb-md-0 my-md-3"/>
