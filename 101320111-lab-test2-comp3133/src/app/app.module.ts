@@ -7,12 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
 import { MissionfilterComponent } from './missionfilter/missionfilter.component';
 import {FormsModule} from "@angular/forms";
+import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MissionlistComponent,
-    MissionfilterComponent
+    MissionfilterComponent,
+    MissiondetailsComponent
   ],
   imports: [
     BrowserModule,
