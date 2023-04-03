@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./missionlist.component.css']
 })
 export class MissionlistComponent {
-
+  title = "SpaceX Mission Launch"
 }
