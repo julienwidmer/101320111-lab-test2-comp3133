@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Mission} from "../models/mission.model";
 
 @Component({
   selector: 'app-missiondetails',
@@ -6,5 +7,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./missiondetails.component.css']
 })
 export class MissiondetailsComponent {
-  @Input() selectedMission: any;
+  @Input() selectedMission!: Mission;
 }

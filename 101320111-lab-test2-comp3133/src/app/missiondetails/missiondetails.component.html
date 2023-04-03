@@ -14,7 +14,7 @@
   Launched successfully!
 </p>
 <p *ngIf="!selectedMission.launch_success" class="fw-semibold text-danger mt-3">
-  Launched failed. ({{selectedMission.launch_failure_details.reason ?? "unknown"}})
+  Launched failed. ({{selectedMission.launch_failure_details?.reason ?? "unknown"}})
 </p>
 
 <h4 class="h6 fw-bold mb-0-1">Links</h4>
@@ -35,7 +35,7 @@
   </svg>
 </a>
 
-<div *ngIf="selectedMission.links.flickr_images.length >= 1">
+<div *ngIf="selectedMission.links.flickr_images != null">
   <h4 class="h6 fw-bold mb-0-1 mt-3">Images</h4>
   <div class="d-flex flex-wrap">
     <div *ngFor="let image of selectedMission.links.flickr_images" class="pb-1 pe-1">
