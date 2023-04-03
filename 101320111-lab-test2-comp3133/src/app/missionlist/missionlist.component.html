@@ -1,1 +1,11 @@
-<h2>{{title}}</h2>
+<h2 class="mb-3">{{title}}</h2>
+<ul class="list-group">
+  <li *ngFor="let mission of missions" class="list-group-item d-flex align-items-center p-3">
+    <img src="{{ mission.links.mission_patch_small ?? 'https://placehold.co/120x120' }}" alt="Mission patch of {{mission.mission_name}}"/>
+    <div class="ms-4">
+      <h3 class="h5 mb-1">{{ mission.mission_name }}</h3>
+      <p class="mb-2">{{ mission.launch_year }}</p>
+      <p class="mb-0 text-secondary">{{ mission.details ?? "No details available" }}.</p>
+    </div>
+  </li>
+</ul>
