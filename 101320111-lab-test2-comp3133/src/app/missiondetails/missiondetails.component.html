@@ -35,7 +35,7 @@
   </svg>
 </a>
 
-<div *ngIf="selectedMission.links.flickr_images != null">
+<div *ngIf="selectedMission.links.flickr_images != null && selectedMission.links.flickr_images.length != 0">
   <h4 class="h6 fw-bold mb-0-1 mt-3">Images</h4>
   <div class="d-flex flex-wrap">
     <div *ngFor="let image of selectedMission.links.flickr_images" class="pb-1 pe-1">
